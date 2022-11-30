@@ -1,9 +1,11 @@
+import org.openqa.selenium.WebDriver;
 import pages.SignUpPage;
 
 public class SignUp {
-    SignUpPage signUpPage = new SignUpPage();
+    WebDriver driver;
+    SignUpPage signUpPage = new SignUpPage(driver);
 
-    public void checkSignUp(){
+    public void checkSignUp() throws InterruptedException {
         signUpPage.SignUpGeneral();
         if(signUpPage.getAlertText().equals("Sign up successful.")){
             System.out.println("Success sign up");
