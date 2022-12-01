@@ -24,24 +24,42 @@ public class SignUpPage {
     }
 
 
-    public void SignUpGeneral() throws InterruptedException {
+    public void signUpSuccess() throws InterruptedException {
         driver = new ChromeDriver(setOptions());
         driver.get(url);
         WebElement signUp = driver.findElement(By.id("signin2"));
         signUp.click();
         Thread.sleep(2000);
         WebElement userName = driver.findElement(By.id("sign-username"));
-        userName.sendKeys("Vardan");
+        userName.sendKeys("Oqsannatest01122022");
         WebElement userPass = driver.findElement(By.id("sign-password"));
         userPass.sendKeys("test123");
         WebElement signUpButton = driver.findElement(By.cssSelector("[onclick='register()']"));
-        System.out.println("sss");
         signUpButton.click();
         Thread.sleep(2000);
     }
 
+    public void signUpEmpty() throws InterruptedException {
+        driver = new ChromeDriver(setOptions());
+        driver.get(url);
+        WebElement signUp = driver.findElement(By.id("signin2"));
+        signUp.click();
+        Thread.sleep(2000);
+        WebElement signUpButton = driver.findElement(By.cssSelector("[onclick='register()']"));
+        signUpButton.click();
+        Thread.sleep(2000);
+    }
+
+    public void signUpExistingInfo() throws InterruptedException {
+        signUpSuccess();
+    }
+
     public String getAlertText() {
         return driver.switchTo().alert().getText();
+    }
+
+    public void PageClose(){
+        driver.quit();
     }
 
 
