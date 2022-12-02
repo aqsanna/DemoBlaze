@@ -17,7 +17,7 @@ public class SignInPage {
     private static ChromeOptions setOptions(){
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximazed");
+        options.addArguments("start-maximized");
         return options;
     }
 
@@ -72,7 +72,7 @@ public class SignInPage {
         return driver.switchTo().alert().getText();
     }
 
-    public void PageClose(){
+    public void pageClose(){
         driver.quit();
     }
 

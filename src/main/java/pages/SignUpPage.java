@@ -58,7 +58,7 @@ public class SignUpPage {
         return driver.switchTo().alert().getText();
     }
 
-    public void PageClose(){
+    public void pageClose(){
         driver.quit();
     }
 

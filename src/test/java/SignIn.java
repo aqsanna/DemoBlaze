@@ -14,7 +14,7 @@ public class SignIn {
         else{
             System.out.println("You can't log in this credential");
         }
-        signInPage.PageClose();
+        signInPage.pageClose();
     }
 
     public void checkEmptySignIn() throws InterruptedException {
@@ -25,7 +25,7 @@ public class SignIn {
         else{
             System.out.println("Username and password not required fields");
         }
-        signInPage.PageClose();
+        signInPage.pageClose();
     }
 
     public void checkNonExistingUser() throws InterruptedException {
@@ -36,6 +36,6 @@ public class SignIn {
         else{
             System.out.println("Success sign in");
         }
-        signInPage.PageClose();
+        signInPage.pageClose();
     }
 }

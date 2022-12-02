@@ -6,7 +6,15 @@ public class MainClass {
         //signUp.checkExistingInfoSignUp();
         SignIn signIn = new SignIn();
         //signIn.checkEmptySignIn();
-        signIn.checkNonExistingUser();
+        //signIn.checkNonExistingUser();
+        Cart cart = new Cart();
+        //cart.checkOpenCart();
+        AboutUs aboutUs = new AboutUs();
+        //aboutUs.checkOpenAboutUs();
+        Contact contact= new Contact();
+        //contact.checkContact();
+        Home home = new Home();
+        home.checkOpenHomePage();
 
     }
 }

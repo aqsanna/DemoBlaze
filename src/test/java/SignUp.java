@@ -13,7 +13,7 @@ public class SignUp {
         else {
             System.out.println("Sign up is failed");
         }
-        signUpPage.PageClose();
+        signUpPage.pageClose();
     }
 
     public void checkEmptySignUp() throws InterruptedException {
@@ -24,7 +24,7 @@ public class SignUp {
         else{
             System.out.println("Username and password not required fields");
         }
-        signUpPage.PageClose();
+        signUpPage.pageClose();
     }
 
     public void checkExistingInfoSignUp() throws InterruptedException {
@@ -35,7 +35,7 @@ public class SignUp {
         else{
             System.out.println("This user not exist.");
         }
-        signUpPage.PageClose();
+        signUpPage.pageClose();
 
     }
 
