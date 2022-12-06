@@ -31,7 +31,7 @@ public class SignUpPage {
         signUp.click();
         Thread.sleep(2000);
         WebElement userName = driver.findElement(By.id("sign-username"));
-        userName.sendKeys("Oqsannatest01122022");
+        userName.sendKeys("Oqsannatest071220222");
         WebElement userPass = driver.findElement(By.id("sign-password"));
         userPass.sendKeys("test123");
         WebElement signUpButton = driver.findElement(By.cssSelector("[onclick='register()']"));
