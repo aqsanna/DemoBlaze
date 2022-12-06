@@ -19,7 +19,7 @@ public class SignUpPage extends DriverManager {
         signUp.click();
         Thread.sleep(2000);
         WebElement userName = driver.findElement(By.id("sign-username"));
-        userName.sendKeys("Oqsannatest0712202222");
+        userName.sendKeys("Oqsannatest00712202222");
         WebElement userPass = driver.findElement(By.id("sign-password"));
         userPass.sendKeys("test123");
         WebElement signUpButton = driver.findElement(By.cssSelector("[onclick='register()']"));
@@ -40,14 +40,4 @@ public class SignUpPage extends DriverManager {
     public void signUpExistingInfo() throws InterruptedException {
         signUpSuccess();
     }
-
-    public String getAlertText() {
-        return driver.switchTo().alert().getText();
-    }
-
-    public void pageClose(){
-        driver.quit();
-    }
-
-
 }

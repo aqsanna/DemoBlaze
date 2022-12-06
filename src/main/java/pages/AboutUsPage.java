@@ -27,7 +27,4 @@ public class AboutUsPage extends DriverManager {
         Boolean videoButton = driver.findElement(By.className("vjs-big-play-button")).isEnabled();
         return  videoButton;
     }
-    public void pageClose(){
-        driver.quit();
-    }
 }

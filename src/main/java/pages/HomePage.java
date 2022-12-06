@@ -19,7 +19,4 @@ public class HomePage extends DriverManager {
         Boolean displayLogout = driver.findElement(By.id("contcar")).isDisplayed();
         return displayLogout;
     }
-    public void pageClose(){
-       driver.quit();
-    }
 }

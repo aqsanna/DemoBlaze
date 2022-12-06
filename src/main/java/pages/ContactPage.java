@@ -23,11 +23,4 @@ public class ContactPage extends DriverManager {
         signInButton.click();
         Thread.sleep(3000);
     }
-    public String getAlertText() {
-        return driver.switchTo().alert().getText();
-    }
-
-    public void pageClose(){
-        driver.quit();
-    }
 }

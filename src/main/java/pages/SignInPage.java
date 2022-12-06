@@ -59,12 +59,5 @@ public class SignInPage extends DriverManager {
         Boolean displayLogout = driver.findElement(By.id("logout2")).isDisplayed();
         return displayLogout;
     }
-    public String getAlertText() {
-        return driver.switchTo().alert().getText();
-    }
-
-    public void pageClose(){
-        driver.quit();
-    }
 
 }

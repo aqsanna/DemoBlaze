@@ -27,8 +27,4 @@ public class CartPage extends DriverManager {
         return PlaceOrder;
 
     }
-    public void pageClose(){
-        driver.quit();
-    }
-
 }
