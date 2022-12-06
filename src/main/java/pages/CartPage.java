@@ -1,5 +1,6 @@
 package pages;
 
+import driver.DriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,22 +8,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class CartPage {
-    WebDriver driver;
-    String url = "https://www.demoblaze.com/index.html";
+public class CartPage extends DriverManager {
 
-    public CartPage(WebDriver driver){
-        this.driver=driver;
+
+    public CartPage(WebDriver driver) {
+        super(driver);
     }
-    public static ChromeOptions setOptions(){
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions option = new ChromeOptions();
-        option.addArguments("start-maximized");
-        return option;
-    }
+
     public void openCart() throws InterruptedException {
-        driver = new ChromeDriver(setOptions());
-        driver.get(url);
+        DriverManager.getDriver();
         WebElement cart = driver.findElement(By.id("cartur"));
         cart.click();
         Thread.sleep(2000);

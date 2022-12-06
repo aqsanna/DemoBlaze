@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import pages.SignUpPage;
 
 public class SignUp {
+
     WebDriver driver;
     SignUpPage signUpPage = new SignUpPage(driver);
 

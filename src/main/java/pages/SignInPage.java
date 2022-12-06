@@ -1,5 +1,6 @@
 package pages;
 
+import driver.DriverManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,23 +8,15 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class SignInPage {
-    WebDriver driver;
-    String url = "https://www.demoblaze.com/index.html";
+public class SignInPage extends DriverManager {
 
-    public SignInPage(WebDriver driver){
-        this.driver=driver;
-    }
-    private static ChromeOptions setOptions(){
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("start-maximized");
-        return options;
+
+    public SignInPage(WebDriver driver) {
+        super(driver);
     }
 
     public void signInSuccess() throws InterruptedException {
-        driver = new ChromeDriver(setOptions());
-        driver.get(url);
+        DriverManager.getDriver();
         WebElement signIn = driver.findElement(By.id("login2"));
         signIn.click();
         Thread.sleep(1000);
@@ -37,8 +30,7 @@ public class SignInPage {
     }
 
     public void signInEmpty() throws InterruptedException {
-        driver = new ChromeDriver(setOptions());
-        driver.get(url);
+        DriverManager.getDriver();
         WebElement signIn = driver.findElement(By.id("login2"));
         signIn.click();
         Thread.sleep(1000);
@@ -48,8 +40,7 @@ public class SignInPage {
     }
 
     public void NonExistingUser() throws InterruptedException {
-        driver = new ChromeDriver(setOptions());
-        driver.get(url);
+        DriverManager.getDriver();
         WebElement signIn = driver.findElement(By.id("login2"));
         signIn.click();
         Thread.sleep(1000);
