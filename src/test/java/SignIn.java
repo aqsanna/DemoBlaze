@@ -10,7 +10,7 @@ public class SignIn {
     SignInPage signInPage = new SignInPage(driver);
     SeleniumUtils utils = new SeleniumUtils(driver);
 
-    @Test(priority = 1)
+    @Test(priority = 1, groups = { "functest" })
     public void checkSignIn() throws InterruptedException {
         signInPage.signInSuccess();
         Assert.assertTrue(signInPage.isDisplayed(), "Your login was successful");
