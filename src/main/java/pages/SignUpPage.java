@@ -8,13 +8,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class SignUpPage extends DriverManager {
+public class SignUpPage  {
 
+    WebDriver driver;
     public SignUpPage(WebDriver driver) {
-        super(driver);
+        this.driver=driver;
     }
     public void signUpSuccess() throws InterruptedException {
-        DriverManager.getDriver();
         WebElement signUp = driver.findElement(By.id("signin2"));
         signUp.click();
         Thread.sleep(2000);
@@ -28,7 +28,6 @@ public class SignUpPage extends DriverManager {
     }
 
     public void signUpEmpty() throws InterruptedException {
-        DriverManager.getDriver();
         WebElement signUp = driver.findElement(By.id("signin2"));
         signUp.click();
         Thread.sleep(2000);

@@ -8,14 +8,14 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class AboutUsPage extends DriverManager {
+public class AboutUsPage  {
 
+    WebDriver driver;
     public AboutUsPage(WebDriver driver) {
-        super(driver);
+        this.driver=driver;
     }
 
     public void openAboutUs() throws InterruptedException {
-        DriverManager.getDriver();
         WebElement aboutUs = driver.findElement(By.linkText("About us"));
         aboutUs.click();
         Thread.sleep(1000);

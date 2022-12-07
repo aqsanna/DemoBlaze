@@ -10,6 +10,6 @@ public class Home {
     @Test
     public void checkOpenHomePage(){
         Assert.assertTrue(homePage.isDisplayed(),"Home page is not opening");
-        homePage.pageClose();
+
     }
 }

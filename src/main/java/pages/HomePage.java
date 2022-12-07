@@ -7,15 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class HomePage extends DriverManager {
+public class HomePage  {
 
-
+    WebDriver driver;
     public HomePage(WebDriver driver) {
-        super(driver);
+        this.driver=driver;
     }
 
     public Boolean isDisplayed(){
-        DriverManager.getDriver();
         Boolean displayLogout = driver.findElement(By.id("contcar")).isDisplayed();
         return displayLogout;
     }

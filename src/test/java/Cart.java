@@ -11,6 +11,5 @@ public class Cart {
     public void checkOpenCart() throws InterruptedException {
         cartPage.openCart();
         Assert.assertTrue(cartPage.isDisplayed(), "Cart section not opening");
-        cartPage.pageClose();
     }
 }

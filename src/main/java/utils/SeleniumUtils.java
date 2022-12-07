@@ -1,12 +1,12 @@
-package seleniumUtils;
+package utils;
 
-import driver.DriverManager;
 import org.openqa.selenium.WebDriver;
 
-public class SeleniumUtils extends DriverManager {
+public class SeleniumUtils  {
 
+    WebDriver driver;
     public SeleniumUtils(WebDriver driver) {
-        super(driver);
+        this.driver=driver;
     }
 
     public String getAlertText() {

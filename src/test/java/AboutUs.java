@@ -12,6 +12,6 @@ public class AboutUs {
     public void checkOpenAboutUs() throws InterruptedException {
         aboutUsPage.openAboutUs();
         Assert.assertTrue(aboutUsPage.isDisplayed(), "The About page doesn't open or the video can't be played");
-        aboutUsPage.pageClose();
+
     }
 }
