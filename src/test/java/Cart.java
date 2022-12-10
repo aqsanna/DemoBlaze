@@ -1,15 +1,16 @@
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.CartPage;
+import pages.basePage.header.CartPage;
 
-public class Cart {
-    WebDriver driver;
-    CartPage cartPage = new CartPage(driver);
+public class Cart extends BaseTest {
+
+    CartPage cartPage;
 
     @Test
     public void checkOpenCart() throws InterruptedException {
+        cartPage = new CartPage(driver);
         cartPage.openCart();
-        Assert.assertTrue(cartPage.isDisplayed(), "Cart section not opening");
+        driver.get("https://www.demoblaze.com/cart.html");
+        Assert.assertTrue(new CartPage(driver).isDisplayed(), "Cart section not opening");
     }
 }

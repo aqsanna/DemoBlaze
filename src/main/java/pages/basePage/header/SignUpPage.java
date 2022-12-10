@@ -5,14 +5,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.component.SignUpComponent;
 
-public class SignUpPage extends HomePageH {
+public class SignUpPage extends BasePage {
     public WebElement signUp;
     SignUpComponent signUpComponent = new SignUpComponent(driver);
 
     public SignUpPage(WebDriver driver) {
         super(driver);
-        signUp =driver.findElement(By.id("signin2"));
+        signUp = driver.findElement(By.id("signin2"));
     }
+
     public void signUpSuccess() throws InterruptedException {
         signUp.click();
         Thread.sleep(2000);
@@ -21,6 +22,7 @@ public class SignUpPage extends HomePageH {
         signUpComponent.signUpButton.click();
         Thread.sleep(2000);
     }
+
     public void signUpEmpty() throws InterruptedException {
         signUp.click();
         Thread.sleep(2000);

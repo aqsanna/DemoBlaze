@@ -1,7 +1,7 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.basePage.header.SignInPage;
-import pages.basePage.header.SignOutPageH;
+import pages.basePage.header.SignOutPage;
 import utils.SeleniumUtils;
 
 public class SignIn extends BaseTest {
@@ -12,8 +12,8 @@ public class SignIn extends BaseTest {
     public void checkSignIn() throws InterruptedException {
         signInPage = new SignInPage(driver);
         signInPage.signInSuccess();
-        Assert.assertTrue(new SignOutPageH(driver).isLogoutDisplayed());
-        Assert.assertTrue(new SignOutPageH(driver).isUserNametDisplayed());
+        Assert.assertTrue(new SignOutPage(driver).isLogoutDisplayed());
+        Assert.assertTrue(new SignOutPage(driver).isUserNametDisplayed());
     }
 
     @Test(priority = 2)

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pages.component.SignInComponent;
 
-public class SignInPage extends HomePageH {
+public class SignInPage extends BasePage {
     public WebElement logIn;
     SignInComponent signInComponent = new SignInComponent(driver);
 
@@ -22,6 +22,7 @@ public class SignInPage extends HomePageH {
         signInComponent.signInButton.click();
         Thread.sleep(3000);
     }
+
     public void signInEmpty() throws InterruptedException {
         logIn.click();
         Thread.sleep(1000);
