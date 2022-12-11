@@ -1,4 +1,3 @@
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.basePage.header.ContactPage;
@@ -7,6 +6,7 @@ import utils.SeleniumUtils;
 public class Contact extends BaseTest{
 
     ContactPage contactPage;
+    SeleniumUtils utils = new SeleniumUtils(driver);
 
     @Test
     public void checkContact() throws InterruptedException {

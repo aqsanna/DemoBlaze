@@ -10,7 +10,6 @@ public class Cart extends BaseTest {
     public void checkOpenCart() throws InterruptedException {
         cartPage = new CartPage(driver);
         cartPage.openCart();
-        driver.get("https://www.demoblaze.com/cart.html");
-        Assert.assertTrue(new CartPage(driver).isDisplayed(), "Cart section not opening");
+        Assert.assertTrue(cartPage.isPlaceOrderDisplayed(), "Cart section not opening");
     }
 }

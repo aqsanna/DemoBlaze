@@ -6,23 +6,24 @@ import org.openqa.selenium.WebElement;
 
 public class AboutUsPage extends BasePage {
 
-    WebElement playButton;
-    BasePage basePage = new BasePage(driver);
+    By playButton = By.className("vjs-big-play-button");
 
     public AboutUsPage(WebDriver driver) {
         super(driver);
-        playButton = driver.findElement(By.className("vjs-big-play-button"));
     }
 
     public void openAboutUs() throws InterruptedException {
-        basePage.aboutUs.click();
+        clickAboutUsButton();
         Thread.sleep(1000);
-        playButton.click();
+        clickPlayButton();
         Thread.sleep(1000);
     }
 
-    public Boolean isDisplayed() {
-        return playButton.isEnabled();
+    public Boolean isPlayButtonDisplayed() {
+        return driver.findElement(playButton).isEnabled();
 
+    }
+    public void clickPlayButton(){
+        driver.findElement(playButton).click();
     }
 }
