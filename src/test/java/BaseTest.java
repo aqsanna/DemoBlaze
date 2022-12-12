@@ -15,5 +15,6 @@ public class BaseTest {
     @AfterMethod
     protected void pageClose(){
         driver.quit();
+        DriverManager.setDriver(null);
     }
 }

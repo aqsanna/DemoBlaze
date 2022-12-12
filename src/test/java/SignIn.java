@@ -1,16 +1,21 @@
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.basePage.header.BasePage;
 import pages.basePage.header.SignInPage;
 import pages.basePage.header.SignOutPage;
-import utils.SeleniumUtils;
 
 public class SignIn extends BaseTest {
 
     SignInPage signInPage;
 
+    @BeforeMethod
+    public void signIn(){
+        signInPage = new SignInPage(driver);
+    }
+
     @Test(priority = 1, groups = { "functest" })
     public void checkSignIn() throws InterruptedException {
-        signInPage = new SignInPage(driver);
         signInPage.signInSuccess();
         Assert.assertTrue(new SignOutPage(driver).isLogoutDisplayed());
         Assert.assertTrue(new SignOutPage(driver).isUserNametDisplayed());
@@ -18,17 +23,15 @@ public class SignIn extends BaseTest {
 
     @Test(priority = 2)
     public void checkEmptySignIn() throws InterruptedException {
-        signInPage = new SignInPage(driver);
         signInPage.signInEmpty();
-        Assert.assertEquals(new SeleniumUtils(driver).getAlertText(), "Please fill out Username and Password.", "Username and password not required fields");
+        Assert.assertEquals(signInPage.getAlertText(), "Please fill out Username and Password.", "Username and password not required fields");
 
     }
 
     @Test(priority = 3)
     public void checkNonExistingUser() throws InterruptedException {
-        signInPage = new SignInPage(driver);
         signInPage.NonExistingUser();
-        Assert.assertEquals(new SeleniumUtils(driver).getAlertText(),"User does not exist.", "Success sign in");
+        Assert.assertEquals(signInPage.getAlertText(),"User does not exist.", "Success sign in");
 
     }
 }

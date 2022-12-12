@@ -17,7 +17,7 @@ public class ContactPage extends BasePage {
     }
 
     public void openContact() throws InterruptedException {
-        clickContactButton();
+        getHeader().clickContactButton();
         Thread.sleep(1000);
         clickSendButton();
         Thread.sleep(3000);

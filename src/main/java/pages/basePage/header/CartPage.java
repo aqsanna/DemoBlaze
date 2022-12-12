@@ -13,7 +13,7 @@ public class CartPage extends BasePage {
     }
 
     public void openCart() throws InterruptedException {
-        clickCartButton();
+        getHeader().clickCartButton();
         Thread.sleep(2000);
     }
 

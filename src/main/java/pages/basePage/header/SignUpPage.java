@@ -3,6 +3,8 @@ package pages.basePage.header;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.component.SignUpComponent;
+import utils.ExistingUser;
+import utils.StringUtils;
 
 public class SignUpPage extends BasePage {
 
@@ -20,8 +22,8 @@ public class SignUpPage extends BasePage {
     public void signUpSuccess() throws InterruptedException {
         clickSignUp();
         Thread.sleep(3000);
-        signUpComponent.setTextUserName("Oqsannas09078122502222");
-        signUpComponent.setTextPassword("test123");
+        signUpComponent.setTextUserName(StringUtils.correctPassword());
+        signUpComponent.setTextPassword(StringUtils.correctPassword());
         signUpComponent.clickSignUpButton();
         Thread.sleep(3000);
     }
@@ -34,7 +36,12 @@ public class SignUpPage extends BasePage {
     }
 
     public void signUpExistingInfo() throws InterruptedException {
-        signUpSuccess();
+        clickSignUp();
+        Thread.sleep(3000);
+        signUpComponent.setTextUserName(ExistingUser.USERNAME);
+        signUpComponent.setTextPassword(ExistingUser.PASSWORD);
+        signUpComponent.clickSignUpButton();
+        Thread.sleep(3000);
     }
 
 }

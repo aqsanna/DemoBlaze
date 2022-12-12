@@ -13,7 +13,7 @@ public class AboutUsPage extends BasePage {
     }
 
     public void openAboutUs() throws InterruptedException {
-        clickAboutUsButton();
+        getHeader().clickAboutUsButton();
         Thread.sleep(1000);
         clickPlayButton();
         Thread.sleep(1000);

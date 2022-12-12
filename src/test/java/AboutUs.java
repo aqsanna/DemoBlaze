@@ -2,6 +2,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.basePage.header.AboutUsPage;
 
+@Test
 public class AboutUs extends BaseTest{
 
     AboutUsPage aboutUsPage;
