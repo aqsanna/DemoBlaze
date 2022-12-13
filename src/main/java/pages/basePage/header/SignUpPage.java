@@ -4,7 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.component.SignUpComponent;
 import utils.ExistingUser;
-import utils.StringUtils;
+import utils.StringUtilsUsername;
+import utils.StringUtilsPassword;
 
 public class SignUpPage extends BasePage {
 
@@ -22,8 +23,8 @@ public class SignUpPage extends BasePage {
     public void signUpSuccess() throws InterruptedException {
         clickSignUp();
         Thread.sleep(3000);
-        signUpComponent.setTextUserName(StringUtils.correctPassword());
-        signUpComponent.setTextPassword(StringUtils.correctPassword());
+        signUpComponent.setTextUserName(StringUtilsUsername.randomStringUtilsUsername());
+        signUpComponent.setTextPassword(StringUtilsPassword.correctPassword());
         signUpComponent.clickSignUpButton();
         Thread.sleep(3000);
     }

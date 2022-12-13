@@ -1,9 +1,9 @@
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.basePage.header.BasePage;
 import pages.basePage.header.SignInPage;
 import pages.basePage.header.SignOutPage;
+import utils.StringUtilsUsername;
 
 public class SignIn extends BaseTest {
 
@@ -32,6 +32,7 @@ public class SignIn extends BaseTest {
     public void checkNonExistingUser() throws InterruptedException {
         signInPage.NonExistingUser();
         Assert.assertEquals(signInPage.getAlertText(),"User does not exist.", "Success sign in");
+        System.out.println(StringUtilsUsername.randomStringUtilsUsername());
 
     }
 }

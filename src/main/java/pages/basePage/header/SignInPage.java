@@ -1,11 +1,11 @@
 package pages.basePage.header;
 
-import org.jsoup.internal.StringUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.component.SignInComponent;
 import utils.ExistingUser;
-import utils.StringUtils;
+import utils.StringUtilsUsername;
+import utils.StringUtilsPassword;
 
 public class SignInPage extends BasePage {
 
@@ -41,8 +41,8 @@ public class SignInPage extends BasePage {
 
         clickLogin();
         Thread.sleep(1000);
-        signInComponent.setTextUserName(StringUtils.correctPassword());
-        signInComponent.setTextPassword(StringUtils.correctPassword());
+        signInComponent.setTextUserName(StringUtilsUsername.randomStringUtilsUsername());
+        signInComponent.setTextPassword(StringUtilsPassword.correctPassword());
         signInComponent.clickSignInButton();
         Thread.sleep(2000);
 

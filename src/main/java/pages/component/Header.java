@@ -27,7 +27,5 @@ public class Header {
         driver.findElement(cartButtonSelector).click();
     }
 
-    public void clickHomeButton() {
-        driver.findElement(homeButtonSelector).click();
-    }
+    public void clickHomeButton() {driver.findElement(homeButtonSelector).click(); }
 }
