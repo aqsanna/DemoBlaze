@@ -2,30 +2,42 @@ package pages.component;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class Header {
     WebDriver driver;
-    By homeButtonSelector = By.cssSelector(".nav-item.active .nav-link");
-    By contactButtonSelector = By.linkText("Contact");
-    By aboutUsButtonSelector = By.linkText("About us");
-    By cartButtonSelector = By.id("cartur");
+    @FindBy(css =".nav-item.active .nav-link")
+    WebElement homeButtonSelector;
+    @FindBy(linkText="Contact")
+    WebElement contactButtonSelector;
+    @FindBy(linkText="About us")
+    WebElement aboutUsButtonSelector;
+    @FindBy(id="cartur")
+    WebElement cartButtonSelector;
 
 
     public Header(WebDriver driver) {
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public void clickContactButton() {
-        driver.findElement(contactButtonSelector).click();
+
+        contactButtonSelector.click();
     }
 
     public void clickAboutUsButton() {
-        driver.findElement(aboutUsButtonSelector).click();
+
+        aboutUsButtonSelector.click();
     }
 
     public void clickCartButton() {
-        driver.findElement(cartButtonSelector).click();
+
+        cartButtonSelector.click();
     }
 
-    public void clickHomeButton() {driver.findElement(homeButtonSelector).click(); }
+    public void clickHomeButton() {
+       homeButtonSelector.click(); }
 }

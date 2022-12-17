@@ -2,18 +2,21 @@ package pages.basePage.header;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class ContactPage extends BasePage {
 
 
-    By sendButton = By.cssSelector("[onclick='send()']");
+    @FindBy(css="[onclick='send()']")
+    private WebElement sendButton;
 
     public ContactPage(WebDriver driver) {
         super(driver);
     }
 
     public void clickSendButton() {
-        driver.findElement(sendButton).click();
+        sendButton.click();
     }
 
     public void openContact() throws InterruptedException {

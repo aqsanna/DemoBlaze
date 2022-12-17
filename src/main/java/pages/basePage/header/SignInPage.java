@@ -1,16 +1,18 @@
 package pages.basePage.header;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import pages.component.SignInComponent;
 import utils.ExistingUser;
-import utils.StringUtilsUsername;
 import utils.StringUtilsPassword;
+import utils.StringUtilsUsername;
 
 public class SignInPage extends BasePage {
 
     SignInComponent signInComponent = new SignInComponent(driver);
-    By login = By.id("login2");
+    @FindBy(id = "login2")
+    private WebElement login;
 
     public SignInPage(WebDriver driver) {
         super(driver);
@@ -18,7 +20,7 @@ public class SignInPage extends BasePage {
     }
 
     public void clickLogin() {
-        driver.findElement(login).click();
+        login.click();
     }
 
     public void signInSuccess() throws InterruptedException {

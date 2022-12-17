@@ -3,13 +3,16 @@ package pages.basePage.header;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class AboutUsPage extends BasePage {
 
-    By playButton = By.className("vjs-big-play-button");
+    @FindBy(className="vjs-big-play-button")
+    private WebElement playButton;
 
     public AboutUsPage(WebDriver driver) {
         super(driver);
+
     }
 
     public void openAboutUs() throws InterruptedException {
@@ -20,10 +23,10 @@ public class AboutUsPage extends BasePage {
     }
 
     public Boolean isPlayButtonDisplayed() {
-        return driver.findElement(playButton).isEnabled();
+        return playButton.isEnabled();
 
     }
     public void clickPlayButton(){
-        driver.findElement(playButton).click();
+        playButton.click();
     }
 }

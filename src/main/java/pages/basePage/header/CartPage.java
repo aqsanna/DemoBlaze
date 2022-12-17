@@ -2,11 +2,14 @@ package pages.basePage.header;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class CartPage extends BasePage {
 
 
-    By placeOrder = By.cssSelector(".btn.btn-success");
+    @FindBy(css=".btn.btn-success")
+    private WebElement placeOrder;
 
     public CartPage(WebDriver driver) {
         super(driver);
@@ -18,7 +21,7 @@ public class CartPage extends BasePage {
     }
 
     public Boolean isPlaceOrderDisplayed() {
-        return driver.findElement(placeOrder).isDisplayed();
+        return placeOrder.isDisplayed();
 
     }
 }

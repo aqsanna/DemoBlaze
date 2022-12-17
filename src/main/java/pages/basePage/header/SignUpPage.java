@@ -2,6 +2,8 @@ package pages.basePage.header;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import pages.component.SignUpComponent;
 import utils.ExistingUser;
 import utils.StringUtilsUsername;
@@ -10,14 +12,15 @@ import utils.StringUtilsPassword;
 public class SignUpPage extends BasePage {
 
     SignUpComponent signUpComponent = new SignUpComponent(driver);
-    By signUp = By.id("signin2");
+    @FindBy(id="signin2")
+    private WebElement signUp;
 
     public SignUpPage(WebDriver driver) {
         super(driver);
     }
 
     public void clickSignUp() {
-        driver.findElement(signUp).click();
+        signUp.click();
     }
 
     public void signUpSuccess() throws InterruptedException {

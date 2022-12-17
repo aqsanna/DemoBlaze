@@ -1,12 +1,14 @@
 package pages.basePage.header;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage {
 
 
-    By CaruselBanner =By.className("carousel-inner");
+    @FindBy(css = ".carousel-inner")
+    private WebElement CaruselBanner;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -16,7 +18,8 @@ public class HomePage extends BasePage {
         getHeader().clickHomeButton();
         Thread.sleep(2000);
     }
-    public Boolean isBannerDisplayed(){
-        return driver.findElement(CaruselBanner).isDisplayed();
+
+    public Boolean isBannerDisplayed() {
+        return CaruselBanner.isDisplayed();
     }
 }

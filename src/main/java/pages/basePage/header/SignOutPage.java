@@ -2,11 +2,15 @@ package pages.basePage.header;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 public class SignOutPage extends BasePage {
 
-    By logOut = By.id("logout2");
-    By userName = By.id("nameofuser");
+    @FindBy(id="logout2")
+    private WebElement logOut;
+    @FindBy(id="nameofuser")
+    private WebElement userName;
 
 
     public SignOutPage(WebDriver driver) {
@@ -14,10 +18,10 @@ public class SignOutPage extends BasePage {
     }
 
     public Boolean isLogoutDisplayed() {
-        return driver.findElement(logOut).isDisplayed();
+        return logOut.isDisplayed();
     }
 
     public Boolean isUserNametDisplayed() {
-        return driver.findElement(userName).isDisplayed();
+        return userName.isDisplayed();
     }
 }
