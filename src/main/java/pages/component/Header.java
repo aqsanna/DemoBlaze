@@ -5,9 +5,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class Header {
     WebDriver driver;
+    WebDriverWait wait;
     @FindBy(css =".nav-item.active .nav-link")
     WebElement homeButtonSelector;
     @FindBy(linkText="Contact")
@@ -24,20 +30,21 @@ public class Header {
     }
 
     public void clickContactButton() {
-
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(contactButtonSelector));
         contactButtonSelector.click();
     }
 
     public void clickAboutUsButton() {
-
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(aboutUsButtonSelector));
         aboutUsButtonSelector.click();
     }
 
     public void clickCartButton() {
-
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(cartButtonSelector));
         cartButtonSelector.click();
     }
 
     public void clickHomeButton() {
-       homeButtonSelector.click(); }
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(homeButtonSelector));
+        homeButtonSelector.click(); }
 }

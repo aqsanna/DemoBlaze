@@ -4,6 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class SignOutPage extends BasePage {
 
@@ -18,10 +22,12 @@ public class SignOutPage extends BasePage {
     }
 
     public Boolean isLogoutDisplayed() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(logOut));
         return logOut.isDisplayed();
     }
 
     public Boolean isUserNametDisplayed() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(userName));
         return userName.isDisplayed();
     }
 }

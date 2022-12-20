@@ -3,10 +3,14 @@ package pages.basePage.header;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.component.SignInComponent;
 import utils.ExistingUser;
 import utils.StringUtilsPassword;
 import utils.StringUtilsUsername;
+
+import java.time.Duration;
 
 public class SignInPage extends BasePage {
 
@@ -20,34 +24,27 @@ public class SignInPage extends BasePage {
     }
 
     public void clickLogin() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(login));
         login.click();
     }
 
     public void signInSuccess() throws InterruptedException {
         clickLogin();
-        Thread.sleep(1000);
         signInComponent.setTextUserName(ExistingUser.USERNAME);
         signInComponent.setTextPassword(ExistingUser.PASSWORD);
         signInComponent.clickSignInButton();
-        Thread.sleep(3000);
     }
 
     public void signInEmpty() throws InterruptedException {
         clickLogin();
-        Thread.sleep(1000);
         signInComponent.clickSignInButton();
-        Thread.sleep(3000);
     }
 
     public void NonExistingUser() throws InterruptedException {
-
         clickLogin();
-        Thread.sleep(1000);
         signInComponent.setTextUserName(StringUtilsUsername.randomStringUtilsUsername());
         signInComponent.setTextPassword(StringUtilsPassword.correctPassword());
         signInComponent.clickSignInButton();
-        Thread.sleep(2000);
-
     }
 
 }

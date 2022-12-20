@@ -2,27 +2,42 @@ package pages.component;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class SignInComponent {
     WebDriver driver;
-    By userNameButton = By.id("loginusername");
-    By passwordButton = By.id("loginpassword");
-    By signInButton = By.cssSelector("[onclick='logIn()']");
+    @FindBy(id="loginusername")
+    WebElement userNameButton;
+    @FindBy(id="loginpassword")
+    WebElement passwordButton;
+    @FindBy(css="[onclick='logIn()']")
+    WebElement signInButton;
 
 
     public SignInComponent(WebDriver driver) {
+
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     public void setTextUserName(String text) {
-        driver.findElement(userNameButton).sendKeys(text);
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(userNameButton));
+        userNameButton.sendKeys(text);
     }
 
     public void setTextPassword(String text) {
-        driver.findElement(passwordButton).sendKeys(text);
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(passwordButton));
+        passwordButton.sendKeys(text);
     }
 
     public void clickSignInButton() {
-        driver.findElement(signInButton).click();
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(signInButton));
+        signInButton.click();
     }
 }

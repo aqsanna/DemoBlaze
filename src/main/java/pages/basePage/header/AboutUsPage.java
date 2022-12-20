@@ -4,6 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class AboutUsPage extends BasePage {
 
@@ -17,16 +21,16 @@ public class AboutUsPage extends BasePage {
 
     public void openAboutUs() throws InterruptedException {
         getHeader().clickAboutUsButton();
-        Thread.sleep(1000);
         clickPlayButton();
-        Thread.sleep(1000);
     }
 
     public Boolean isPlayButtonDisplayed() {
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.invisibilityOf(playButton));
         return playButton.isEnabled();
 
     }
     public void clickPlayButton(){
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(playButton));
         playButton.click();
     }
 }
