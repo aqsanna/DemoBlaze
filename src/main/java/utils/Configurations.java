@@ -9,13 +9,13 @@ import java.util.Properties;
 public class Configurations {
 
     public static final String URL;
-    public static final String BROWSER;
+    public static final String BROWSER_TYPE;
     public static final String TESTNG_XML;
 
     static {
         try {
             URL = getPropValues("url");
-            BROWSER = getPropValues("browser");
+            BROWSER_TYPE = getPropValues("browser_type");
             TESTNG_XML = getPropValues("testng_xml");
         } catch (IOException e) {
             throw new RuntimeException(e);
