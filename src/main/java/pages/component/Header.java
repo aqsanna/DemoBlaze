@@ -4,10 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
+import utils.Wait;
 
 public class Header {
     WebDriver driver;
@@ -28,21 +26,21 @@ public class Header {
     }
 
     public void clickContactButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(contactButtonSelector));
+        Wait.waitVisibleElement(driver, contactButtonSelector);
         contactButtonSelector.click();
     }
 
     public void clickAboutUsButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(aboutUsButtonSelector));
+        Wait.waitVisibleElement(driver, aboutUsButtonSelector);
         aboutUsButtonSelector.click();
     }
 
     public void clickCartButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(cartButtonSelector));
+        Wait.waitVisibleElement(driver,cartButtonSelector);
         cartButtonSelector.click();
     }
 
     public void clickHomeButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(homeButtonSelector));
+        Wait.waitVisibleElement(driver,homeButtonSelector);
         homeButtonSelector.click(); }
 }

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Wait;
 
 import java.time.Duration;
 
@@ -18,12 +19,12 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
-    public void openHome() throws InterruptedException {
+    public void openHome()  {
         getHeader().clickHomeButton();
     }
 
     public Boolean isBannerDisplayed() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(CaruselBanner));
+        Wait.waitVisibleElement(driver,CaruselBanner);
         return CaruselBanner.isDisplayed();
     }
 }

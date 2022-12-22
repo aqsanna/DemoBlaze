@@ -8,7 +8,7 @@ public class Cart extends BaseTest {
     CartPage cartPage;
 
     @Test
-    public void checkOpenCart() throws InterruptedException {
+    public void checkOpenCart() {
         cartPage = new CartPage(driver);
         cartPage.openCart();
         Assert.assertTrue(cartPage.isPlaceOrderDisplayed(), "Cart section not opening");

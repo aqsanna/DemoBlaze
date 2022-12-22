@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utils.Wait;
 
 import java.time.Duration;
 
@@ -25,17 +26,17 @@ public class SignUpComponent {
     }
 
     public void setTextUserName(String text) {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(userName));
+        Wait.waitVisibleElement(driver,userName);
         userName.sendKeys(text);
     }
 
     public void setTextPassword(String text) {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(userPass));
+        Wait.waitVisibleElement(driver, userPass);
         userPass.sendKeys(text);
     }
 
     public void clickSignUpButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(signUpButton));
+        Wait.waitElementToBeClickable(driver, signUpButton);
         signUpButton.click();
     }
 }

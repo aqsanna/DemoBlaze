@@ -15,21 +15,21 @@ public class SignIn extends BaseTest {
     }
 
     @Test(priority = 1, groups = { "functest" })
-    public void checkSignIn() throws InterruptedException {
+    public void checkSignIn()  {
         signInPage.signInSuccess();
         Assert.assertTrue(new SignOutPage(driver).isLogoutDisplayed());
         Assert.assertTrue(new SignOutPage(driver).isUserNametDisplayed());
     }
 
     @Test(priority = 2)
-    public void checkEmptySignIn() throws InterruptedException {
+    public void checkEmptySignIn() {
         signInPage.signInEmpty();
         Assert.assertEquals(signInPage.getAlertText(), "Please fill out Username and Password.", "Username and password not required fields");
 
     }
 
     @Test(priority = 3)
-    public void checkNonExistingUser() throws InterruptedException {
+    public void checkNonExistingUser() {
         signInPage.NonExistingUser();
         Assert.assertEquals(signInPage.getAlertText(),"User does not exist.", "Success sign in");
         System.out.println(StringUtilsUsername.randomStringUtilsUsername());

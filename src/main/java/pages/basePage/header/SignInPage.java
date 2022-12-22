@@ -9,6 +9,7 @@ import pages.component.SignInComponent;
 import utils.ExistingUser;
 import utils.StringUtilsPassword;
 import utils.StringUtilsUsername;
+import utils.Wait;
 
 import java.time.Duration;
 
@@ -24,23 +25,23 @@ public class SignInPage extends BasePage {
     }
 
     public void clickLogin() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(login));
+        Wait.waitElementToBeClickable(driver, login);
         login.click();
     }
 
-    public void signInSuccess() throws InterruptedException {
+    public void signInSuccess() {
         clickLogin();
         signInComponent.setTextUserName(ExistingUser.USERNAME);
         signInComponent.setTextPassword(ExistingUser.PASSWORD);
         signInComponent.clickSignInButton();
     }
 
-    public void signInEmpty() throws InterruptedException {
+    public void signInEmpty()  {
         clickLogin();
         signInComponent.clickSignInButton();
     }
 
-    public void NonExistingUser() throws InterruptedException {
+    public void NonExistingUser()  {
         clickLogin();
         signInComponent.setTextUserName(StringUtilsUsername.randomStringUtilsUsername());
         signInComponent.setTextPassword(StringUtilsPassword.correctPassword());
