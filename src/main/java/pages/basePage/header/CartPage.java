@@ -19,7 +19,7 @@ public class CartPage extends BasePage {
         super(driver);
     }
 
-    public void openCart() throws InterruptedException {
+    public void openCart() {
         getHeader().clickCartButton();
     }
 

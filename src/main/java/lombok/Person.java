@@ -1,5 +1,6 @@
 package lombok;
 
+@AllArgsConstructor
 @Getter
 @Setter
 public class Person {

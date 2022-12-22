@@ -11,7 +11,7 @@ public class AboutUs extends BaseTest{
     public void checkOpenAboutUs() throws InterruptedException {
         aboutUsPage = new AboutUsPage(driver);
         aboutUsPage.openAboutUs();
-        Assert.assertTrue(aboutUsPage.isPlayButtonDisplayed(), "The About page doesn't open or the video can't be played");
+        Assert.assertTrue(aboutUsPage.isPlayButtonEnabled(), "The About page doesn't open or the video can't be played");
 
     }
 }

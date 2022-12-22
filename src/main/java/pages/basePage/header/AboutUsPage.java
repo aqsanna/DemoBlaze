@@ -1,6 +1,5 @@
 package pages.basePage.header;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,7 +23,7 @@ public class AboutUsPage extends BasePage {
         clickPlayButton();
     }
 
-    public Boolean isPlayButtonDisplayed() {
+    public Boolean isPlayButtonEnabled() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.invisibilityOf(playButton));
         return playButton.isEnabled();
 
