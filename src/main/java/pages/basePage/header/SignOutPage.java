@@ -1,14 +1,10 @@
 package pages.basePage.header;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.Wait;
 
-import java.time.Duration;
+import static utils.WaitHelper.waitCustomVisibleOf;
 
 public class SignOutPage extends BasePage {
 
@@ -22,15 +18,18 @@ public class SignOutPage extends BasePage {
         super(driver);
     }
 
+    @Override
+    public String getPageUrl() {
+        return null;
+    }
+
     public Boolean isLogoutDisplayed() {
-        Wait.waitVisibleElement(driver, logOut);
-        //new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(logOut));
+        waitCustomVisibleOf(logOut);
         return logOut.isDisplayed();
     }
 
     public Boolean isUserNametDisplayed() {
-        Wait.waitVisibleElement(driver, userName);
-        //new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(userName));
+        waitCustomVisibleOf(userName);
         return userName.isDisplayed();
     }
 }

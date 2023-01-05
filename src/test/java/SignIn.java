@@ -32,7 +32,7 @@ public class SignIn extends BaseTest {
     public void checkNonExistingUser() {
         signInPage.NonExistingUser();
         Assert.assertEquals(signInPage.getAlertText(),"User does not exist.", "Success sign in");
-        System.out.println(StringUtilsUsername.randomStringUtilsUsername());
+        //System.out.println(StringUtilsUsername.randomStringUtilsUsername());
 
     }
 }

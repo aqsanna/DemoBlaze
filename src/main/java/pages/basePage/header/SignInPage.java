@@ -3,15 +3,13 @@ package pages.basePage.header;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.component.SignInComponent;
 import utils.ExistingUser;
 import utils.StringUtilsPassword;
 import utils.StringUtilsUsername;
-import utils.Wait;
+import utils.WaitHelper;
 
-import java.time.Duration;
+import static utils.WaitHelper.waitCustomClickable;
 
 public class SignInPage extends BasePage {
 
@@ -24,8 +22,13 @@ public class SignInPage extends BasePage {
 
     }
 
+    @Override
+    public String getPageUrl() {
+        return null;
+    }
+
     public void clickLogin() {
-        Wait.waitElementToBeClickable(driver, login);
+        waitCustomClickable(login);
         login.click();
     }
 

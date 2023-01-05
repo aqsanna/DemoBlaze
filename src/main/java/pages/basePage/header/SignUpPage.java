@@ -7,7 +7,8 @@ import pages.component.SignUpComponent;
 import utils.ExistingUser;
 import utils.StringUtilsPassword;
 import utils.StringUtilsUsername;
-import utils.Wait;
+
+import static utils.WaitHelper.waitCustomVisibleOf;
 
 public class SignUpPage extends BasePage {
 
@@ -19,8 +20,13 @@ public class SignUpPage extends BasePage {
         super(driver);
     }
 
+    @Override
+    public String getPageUrl() {
+        return null;
+    }
+
     public void clickSignUp() {
-        Wait.waitVisibleElement(driver, signUp);
+        waitCustomVisibleOf(signUp);
         signUp.click();
     }
 

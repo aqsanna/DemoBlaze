@@ -1,15 +1,12 @@
 package pages.component;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.Wait;
 
-import java.time.Duration;
+import static utils.WaitHelper.waitCustomClickable;
+import static utils.WaitHelper.waitCustomVisibleOf;
 
 public class SignUpComponent {
     WebDriver driver;
@@ -26,17 +23,17 @@ public class SignUpComponent {
     }
 
     public void setTextUserName(String text) {
-        Wait.waitVisibleElement(driver,userName);
+        waitCustomVisibleOf(userName);
         userName.sendKeys(text);
     }
 
     public void setTextPassword(String text) {
-        Wait.waitVisibleElement(driver, userPass);
+        waitCustomVisibleOf(userPass);
         userPass.sendKeys(text);
     }
 
     public void clickSignUpButton() {
-        Wait.waitElementToBeClickable(driver, signUpButton);
+        waitCustomClickable(signUpButton);
         signUpButton.click();
     }
 }

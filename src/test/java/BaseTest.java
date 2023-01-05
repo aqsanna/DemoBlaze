@@ -1,11 +1,11 @@
-import driver.DriverManager;
+import driver.CustomDriver;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import pages.basePage.header.BasePage;
 import utils.Configurations;
 
 import java.io.IOException;
-import java.net.URL;
 import java.time.Duration;
 
 public class BaseTest {
@@ -13,7 +13,9 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() throws IOException {
-        driver = DriverManager.getDriver();
+        BasePage basePage = null;
+       // basePage.get();
+        driver = CustomDriver.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(Configurations.URL);
     }
@@ -21,6 +23,6 @@ public class BaseTest {
     @AfterMethod
     protected void pageClose(){
         driver.quit();
-        DriverManager.setDriver(null);
+        CustomDriver.setDriver(null);
     }
 }

@@ -3,7 +3,8 @@ package pages.basePage.header;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import utils.Wait;
+
+import static utils.WaitHelper.waitCustomVisibleOf;
 
 public class CartPage extends BasePage {
 
@@ -14,12 +15,17 @@ public class CartPage extends BasePage {
         super(driver);
     }
 
+    @Override
+    public String getPageUrl() {
+        return null;
+    }
+
     public void openCart() {
         getHeader().clickCartButton();
     }
 
     public Boolean isPlaceOrderDisplayed() {
-        Wait.waitVisibleElement(driver, placeOrder);
+        waitCustomVisibleOf(placeOrder);
         return placeOrder.isDisplayed();
 
     }

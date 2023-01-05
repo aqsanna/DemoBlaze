@@ -3,7 +3,9 @@ package pages.basePage.header;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import utils.Wait;
+
+import static utils.WaitHelper.waitCustomInVisible;
+import static utils.WaitHelper.waitCustomVisibleOf;
 
 public class AboutUsPage extends BasePage {
 
@@ -15,18 +17,23 @@ public class AboutUsPage extends BasePage {
 
     }
 
+    @Override
+    public String getPageUrl() {
+        return null;
+    }
+
     public void openAboutUs()  {
         getHeader().clickAboutUsButton();
         clickPlayButton();
     }
 
     public Boolean isPlayButtonEnabled() {
-        Wait.waitInVisibleElement(driver, playButton);
+        waitCustomInVisible(playButton);
         return playButton.isEnabled();
 
     }
     public void clickPlayButton(){
-        Wait.waitVisibleElement(driver, playButton);
+        waitCustomVisibleOf(playButton);
         playButton.click();
     }
 }

@@ -3,7 +3,9 @@ package pages.basePage.header;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import utils.Wait;
+import utils.WaitHelper;
+
+import static utils.WaitHelper.waitCustomInVisible;
 
 public class ContactPage extends BasePage {
 
@@ -14,8 +16,14 @@ public class ContactPage extends BasePage {
         super(driver);
     }
 
+    @Override
+    public String getPageUrl() {
+        return null;
+    }
+
     public void clickSendButton() {
-        Wait.waitInVisibleElement(driver,sendButton);
+      //  WaitHelper.waitInVisibleElement(driver,sendButton);
+        waitCustomInVisible(sendButton);
         sendButton.click();
     }
 

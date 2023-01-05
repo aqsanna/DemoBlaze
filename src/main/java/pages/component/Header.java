@@ -5,7 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.Wait;
+
+import static utils.WaitHelper.waitCustomVisibleOf;
 
 public class Header {
     WebDriver driver;
@@ -26,21 +27,21 @@ public class Header {
     }
 
     public void clickContactButton() {
-        Wait.waitVisibleElement(driver, contactButtonSelector);
+        waitCustomVisibleOf(contactButtonSelector);
         contactButtonSelector.click();
     }
 
     public void clickAboutUsButton() {
-        Wait.waitVisibleElement(driver, aboutUsButtonSelector);
+        waitCustomVisibleOf(aboutUsButtonSelector);
         aboutUsButtonSelector.click();
     }
 
     public void clickCartButton() {
-        Wait.waitVisibleElement(driver,cartButtonSelector);
+        waitCustomVisibleOf(cartButtonSelector);
         cartButtonSelector.click();
     }
 
     public void clickHomeButton() {
-        Wait.waitVisibleElement(driver,homeButtonSelector);
+        waitCustomVisibleOf(homeButtonSelector);
         homeButtonSelector.click(); }
 }
