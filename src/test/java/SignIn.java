@@ -17,8 +17,9 @@ public class SignIn extends BaseTest {
     @Test(priority = 1, groups = { "functest" })
     public void checkSignIn()  {
         signInPage.signInSuccess();
-        Assert.assertTrue(new SignOutPage(driver).isLogoutDisplayed());
-        Assert.assertTrue(new SignOutPage(driver).isUserNametDisplayed());
+        SignOutPage signOutPage = new SignOutPage(driver);
+        Assert.assertTrue(signOutPage.isLogoutDisplayed());
+        Assert.assertTrue(signOutPage.isUserNametDisplayed());
     }
 
     @Test(priority = 2)

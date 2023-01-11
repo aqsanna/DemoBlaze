@@ -43,8 +43,7 @@ public abstract class BasePage extends CustomLoadableComponent {
 
 
     public String getAlertText() {
-        //WaitHelper.waitAlertIsPresent(driver);  sranov linuma
-        waitCustomAlertDisplayed(); // sranov chi linum mi qani test miangamic run anel
+        waitCustomAlertDisplayed();
         return driver.switchTo().alert().getText();
     }
 

@@ -14,7 +14,7 @@ public class BaseTest {
     @BeforeMethod
     public void setUp() throws IOException {
         BasePage basePage = null;
-       // basePage.get();
+        //basePage.get();
         driver = CustomDriver.getDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.get(Configurations.URL);

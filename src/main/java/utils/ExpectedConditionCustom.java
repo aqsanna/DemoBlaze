@@ -9,6 +9,10 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import pages.basePage.header.BasePage;
 import pages.component.Header;
 
+import java.io.IOException;
+
+import static driver.CustomDriver.getDriver;
+
 public class ExpectedConditionCustom extends BasePage {
 
 
@@ -26,8 +30,8 @@ public class ExpectedConditionCustom extends BasePage {
             @Override
             public Boolean apply(WebDriver driver) {
                 try {
-                    return driver.switchTo().alert().getText().contains(" ");
-                } catch (NoSuchSessionException e) {
+                    return getDriver().switchTo().alert().getText().contains(" ");
+                } catch (NoSuchSessionException | IOException e) {
                     e.printStackTrace();
                     return false;
                 }
