@@ -1,13 +1,21 @@
 package listener;
+import lombok.SneakyThrows;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext ;
 import org.testng.ITestListener ;
 import org.testng.ITestResult ;
+import utils.Screenshot;
 
-public class ListenerTest implements ITestListener
+import java.io.IOException;
+
+public class ListenerTest  implements ITestListener
 {
     private static final Logger logger = LogManager.getLogger(ListenerTest.class);
+
+    Screenshot screenshot = new Screenshot();
+
 
     @Override
     public void onStart(ITestContext context) {
@@ -30,12 +38,19 @@ public class ListenerTest implements ITestListener
 
     }
 
+
     @Override
     public void onTestFailure(ITestResult result) {
         // TODO Auto-generated method stub
         logger.info("onTestFailure Method" +result.getName());
-
+        try {
+            screenshot.getScreenshot();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+
 
     @Override
     public void onTestSkipped(ITestResult result) {

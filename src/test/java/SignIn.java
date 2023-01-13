@@ -1,4 +1,5 @@
 import org.testng.Assert;
+import org.testng.SkipException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.basePage.header.SignInPage;
@@ -35,5 +36,14 @@ public class SignIn extends BaseTest {
         Assert.assertEquals(signInPage.getAlertText(),"User does not exist.", "Success sign in");
         //System.out.println(StringUtilsUsername.randomStringUtilsUsername());
 
+    }
+    @Test(priority = 4)
+    public void failurTest(){
+        signInPage.NonExistingUser();
+        Assert.fail();
+    }
+    @Test(priority = 5)
+    public void skipExeption(){
+       throw new SkipException("Skiping in test");
     }
 }

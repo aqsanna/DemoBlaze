@@ -2,14 +2,11 @@ package pages.basePage.header;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.BeforeMethod;
 import pages.component.Header;
-import utils.Configurations;
 import utils.CustomLoadableComponent;
 
 import java.io.IOException;
 
-import static driver.CustomDriver.getDriver;
 import static utils.JSWaiter.waitForJQueryLoad;
 import static utils.JSWaiter.waitUntilJSReady;
 import static utils.WaitHelper.waitCustomAlertDisplayed;
@@ -25,7 +22,7 @@ public abstract class BasePage extends CustomLoadableComponent {
         PageFactory.initElements(driver, this);
 
     }
-//    public T openPage(Class<T> clazz) throws IOException {
+    //    public T openPage(Class<T> clazz) throws IOException {
 //        T page = PageFactory.initElements(getDriver(), clazz);
 //        getDriver().get(Configurations.URL + getPageUrl());
 //        return page.get();

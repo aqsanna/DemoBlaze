@@ -1,5 +1,3 @@
-import io.netty.util.internal.logging.InternalLoggerFactory;
-import io.netty.util.internal.logging.Log4J2LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.basePage.header.HomePage;
@@ -11,7 +9,6 @@ import java.io.IOException;
 public class Home extends BaseTest{
 
     HomePage homePage;
-  //  private static  final InternalLoggerFactory log = (InternalLoggerFactory) Log4J2LoggerFactory.getInstance(Home.class);
   private static final Logger logger = LogManager.getLogger(Home.class);
     @Test
     public void checkOpenHomePage() throws InterruptedException, IOException {
