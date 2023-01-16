@@ -43,11 +43,7 @@ public class ListenerTest  implements ITestListener
     public void onTestFailure(ITestResult result) {
         // TODO Auto-generated method stub
         logger.info("onTestFailure Method" +result.getName());
-        try {
             screenshot.getScreenshot();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
 

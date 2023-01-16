@@ -43,7 +43,7 @@ public class CustomDriver {
         CustomDriver.driver = driver;
     }
 
-    public static WebDriver getDriver() throws IOException {
+    public static WebDriver getDriver()  {
 
         if (Configurations.getPropValues("browser_type").equals("chrome")) {
             if (driver == null) {

@@ -13,13 +13,17 @@ import static driver.CustomDriver.getDriver;
 
 public  class Screenshot  {
 
-    public void getScreenshot() throws IOException {
+    public void getScreenshot()  {
         Date date = new Date();
         String screenshotFileName = date.toString().replace(" ", ".").replace(":", "-");
         TakesScreenshot scrShot =((TakesScreenshot)getDriver());
         File SourceFile=scrShot.getScreenshotAs(OutputType.FILE);
         File DestFile=new File(".//screenShot//" + screenshotFileName + ".png");
-        FileUtils.copyFile(SourceFile, DestFile);
+        try {
+            FileUtils.copyFile(SourceFile, DestFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 

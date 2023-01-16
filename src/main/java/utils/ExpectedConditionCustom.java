@@ -1,15 +1,10 @@
 package utils;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import pages.basePage.header.BasePage;
-import pages.component.Header;
-
-import java.io.IOException;
 
 import static driver.CustomDriver.getDriver;
 
@@ -31,7 +26,7 @@ public class ExpectedConditionCustom extends BasePage {
             public Boolean apply(WebDriver driver) {
                 try {
                     return getDriver().switchTo().alert().getText().contains(" ");
-                } catch (NoSuchSessionException | IOException e) {
+                } catch (NoSuchSessionException e) {
                     e.printStackTrace();
                     return false;
                 }

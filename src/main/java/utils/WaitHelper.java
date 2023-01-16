@@ -16,11 +16,7 @@ public class WaitHelper {
     static  WebDriverWait wait;
 
     static {
-        try {
             wait = new WebDriverWait(getDriver(), Duration.ofSeconds(TIME_OUT));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public static void waitVisibleElement(WebDriver driver, WebElement element) {

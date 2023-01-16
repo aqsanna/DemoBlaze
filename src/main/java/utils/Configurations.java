@@ -13,13 +13,10 @@ public class Configurations {
     public static final String TESTNG_XML;
 
     static {
-        try {
             URL = getPropValues("url");
             BROWSER_TYPE = getPropValues("browser_type");
             TESTNG_XML = getPropValues("testng_xml");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
     }
 
     static InputStream inputStream;
@@ -44,10 +41,14 @@ public class Configurations {
         return prop;
     }
 
-    public static String getPropValues(String key) throws IOException {
+    public static String getPropValues(String key)  {
 
         if (System.getProperty(key) == null) {
-            return getPropValues().getProperty(key);
+            try {
+                return getPropValues().getProperty(key);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return System.getProperty(key);
     }
